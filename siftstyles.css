@@ -1,0 +1,314 @@
+/* body {
+    background-color: black;
+    height: 100vh;
+    margin: 0rem;
+    overflow: hidden; 
+  }
+  
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    
+    50% {
+      scale: 1 1.5;
+    }
+    
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  #blob {
+    background-color: white;
+    height: 34vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    animation: rotate 20s infinite;
+    opacity: 0.8;
+  }
+  
+  #blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    backdrop-filter: blur(12vmax);
+  }
+  
+  h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(3rem, 5vw, 10rem);
+    color: white;
+    white-space: nowrap;
+    padding: 0rem clamp(1rem, 2vw, 3rem);
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    margin: 0rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    z-index: 3;
+  }
+   */
+
+
+   :root {
+    --background-rgb:rgb(250, 232, 232);
+    
+    --blue-rgb: 246, 0, 176;
+    --primary-rgb: var(--blue-rgb);
+    
+    --blob-color-1: rgb(246, 0, 176);
+    --blob-color-2: rgb(0, 63, 251);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: rgb(250, 232, 232);
+    margin: 0rem;
+    /* overflow: hidden; */
+  }
+  h2{
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(1rem,1vw, 1rem);
+    color: rgb(250, 232, 232);
+    white-space: nowrap;
+    padding: 0rem clamp(1rem, 2vw, 3rem);
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    margin: 0rem;
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    translate: -50% -50%;
+    z-index: 3;
+
+  }
+    h1 {
+      
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(2rem, 3vw, 10rem);
+    color: rgb(42, 42, 42);
+    white-space: nowrap;
+    padding: 0rem clamp(1rem, 2vw, 3rem);
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    margin: 0rem;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    translate: -50% -50%;
+    z-index: 3;
+  }
+  .images{
+      margin-top: 300px;
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+  }
+  .screen {
+    top : 30%;
+    width: 300px;
+    height: 70vh;
+    display: flex;
+    border: 3px solid rgb(var(--primary-rgb) / 80%);
+    aspect-ratio: 10 / 16;
+    border-radius: 1rem;
+    background-color: rgb(var(--primary-rgb) / 15%);
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+  }
+  
+
+  
+  @keyframes pan-overlay {
+    from {
+      background-position: 0% 0%;
+    }
+    
+    to {
+      background-position: 0% -100%;
+    }
+  }
+  
+  .screen-overlay {    
+    background: linear-gradient(
+      rgb(var(--primary-rgb) / 0.15),
+      rgb(var(--primary-rgb) / 0.15) 3px,
+      transparent 3px,
+      transparent 9px
+    );
+    background-size: 100% 9px;
+    height: 100%;
+    width: 100%;
+    animation: pan-overlay 22s infinite linear;
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+  }
+  
+  @keyframes pan-image {  
+    /* 0% {
+      background-position: 36% 42%;
+      background-size: 100%;
+    }
+    
+    20% {
+      background-position: 45% 35%;
+      background-size: 100%;
+    } */
+    
+    /* 20.0001% { 
+      background-position: 40% 65%;
+      background-size: 100%;
+    }
+    
+    40% {
+      background-position: 49% 51%;
+      background-size: 100%;
+    } */
+    
+    /* 40.0001% { 
+      background-position: 50% 42%;
+      background-size: 100%;
+    }
+     */
+    60% {
+      background-position: 84% 33%;
+      background-size: 150%;
+    }
+    
+    /* 60.0001% {
+      background-position: 0% 0%;
+      background-size: 150%;
+    } */
+    
+    /* 80% {
+      background-position: 15% 4%;
+      background-size: 150%;
+    } */
+    
+    80.0001% { /* -- View 5 -- */
+      background-position: 70% 10%;
+      background-size: 150%;
+    }
+    
+    100% {
+      background-position: 72% 14%;
+      background-size: 100%;
+    }
+  }
+
+  /* background: url(img/image.jpg) 50% 0 no-repeat fixed;  */
+  
+  .screen > .screen-image {
+    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift1.jpeg");
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    background-size: 300%;
+    background-position: 0% 0%;
+    animation: pan-image 15s linear infinite;
+  }
+  .screen > .screen-image2 {
+    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift2.jpeg");
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    background-size: 300%;
+    background-position: 0% 0%;
+    animation: pan-image 15s linear infinite;
+  }
+  .screen > .screen-image3 {
+    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift3.jpeg");
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    background-size: 300%;
+    background-position: 0% 0%;
+    animation: pan-image 15s linear infinite;
+  }
+  .screen > .screen-image4 {
+    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift4.jpeg");
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    background-size: 300%;
+    background-position: 0% 0%;
+    animation: pan-image 15s linear infinite;
+  }
+  
+  
+  
+  @media(max-width: 700px) {
+    .screen {
+      scale: 0.6;
+      margin-bottom: 0rem;
+    }
+  }
+  
+  /* -- Blob effect -- */
+  
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    
+    50% {
+      scale: 1 1.5;
+    }
+    
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  #blob {
+    background-color: white;
+    height: 34vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, var(--blob-color-1), var(--blob-color-2));
+    animation: rotate 20s infinite;
+    opacity: 0.5;
+  }
+  
+  #blur {
+    height: 150%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    backdrop-filter: blur(12vmax);
+  }
+  
+  /* -- Links -- */
+  
+
