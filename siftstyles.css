@@ -76,7 +76,7 @@
     height: 100vh;
     display: grid;
     place-items: center;
-    background-color: rgb(250, 232, 232);
+    background-color: rgb(100, 232, 232);
     margin: 0rem;
     /* overflow: hidden; */
   }
