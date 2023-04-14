@@ -250,7 +250,7 @@
     animation: pan-image 15s linear infinite;
   }
   .screen > .screen-image4 {
-    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift4.jpeg");
+    background-image: url("images/sift4.jpeg");
     height: 100%;
     width: 100%;
     position: absolute;
