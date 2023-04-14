@@ -214,7 +214,7 @@
   /* background: url(img/image.jpg) 50% 0 no-repeat fixed;  */
   
   .screen > .screen-image {
-    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift1.jpeg");
+    background-image: url("images/sift1.jpeg");
     height: 100%;
     width: 100%;
     position: absolute;
@@ -226,7 +226,7 @@
     animation: pan-image 15s linear infinite;
   }
   .screen > .screen-image2 {
-    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift2.jpeg");
+    background-image: url("images/sift2.jpeg");
     height: 100%;
     width: 100%;
     position: absolute;
@@ -238,7 +238,7 @@
     animation: pan-image 15s linear infinite;
   }
   .screen > .screen-image3 {
-    background-image: url("/Users/siddhantdeshpande/Documents/sift/images/sift3.jpeg");
+    background-image: url("images/sift3.jpeg");
     height: 100%;
     width: 100%;
     position: absolute;
